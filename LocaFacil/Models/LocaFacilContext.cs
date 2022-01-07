@@ -8,9 +8,9 @@ namespace LocaFacil
 {
 	public partial class LocaFacilContext : DbContext
 	{
-        private const string _ConnectionString = "server=localhost;user=root;password=admin;database=locafacil";
+		private const string _ConnectionString = "server=localhost;user=root;password=admin;database=locafacil";
 
-        public DbSet<UF> UF { get; set; }
+		public DbSet<Uf> Uf { get; set; }
 		public DbSet<Endereco> Endereco { get; set; }
 		public DbSet<TipoImovel> TipoImovel { get; set; }
 		public DbSet<Telefone> Telefone { get; set; }
@@ -30,8 +30,16 @@ namespace LocaFacil
 		{
 			modelBuilder.HasCharSet("latin1").UseCollation("latin1_swedish_ci");
 			OnModelCreatingPartial(modelBuilder);
-		}
 
+			// Bloquear o cascade delete
+			foreach (var entity in modelBuilder.Model.GetEntityTypes())
+			{
+				foreach (var fk in entity.GetForeignKeys())
+				{
+					fk.DeleteBehavior = DeleteBehavior.Restrict;
+				}
+			}
+		}
 		partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 	}
 }

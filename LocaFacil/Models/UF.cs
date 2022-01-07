@@ -3,9 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LocaFacil.Models
 {
-	public class UF
+	public class Uf
 	{
-		public int ID { get; set; }
+		[Key]
+		public int Id { get; set; }
 
 		[StringLength(2, MinimumLength = 2, ErrorMessage = "Sigla do estado deve conter 2 caracteres")]
 		[Required(ErrorMessage = "Favor informar a sigla do estado")]
@@ -16,6 +17,6 @@ namespace LocaFacil.Models
 		[Required(ErrorMessage = "Favor informar o nome do estado")]
 		public string Nome { get; set; }
 
-		public virtual ICollection<Endereco> Endereco { get; set; }
+		public virtual ICollection<Endereco> Enderecos { get; set; }
 	}
 }

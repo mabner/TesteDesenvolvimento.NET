@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace LocaFacil.Models
 {
     public class Endereco
     {
-        public int ID { get; set; }
+		[Key]
+		public int Id { get; set; }
 
         [StringLength(8, MinimumLength = 8, ErrorMessage = "O CEP completo deve conter 8 números")]
         [Required(ErrorMessage = "Favor informar o CEP")]
@@ -31,7 +33,10 @@ namespace LocaFacil.Models
         [Required(ErrorMessage = "Favor informar o nome da localidade")]
         public string Localidade { get; set; }
 
-        public virtual UF UF { get; set; }
+		[Display(Name = "UF")]
+		[DefaultValue("MG")]
+		public int UfId { get; set; }
+		public virtual Uf Uf { get; set; }
 
-    }
+	}
 }
