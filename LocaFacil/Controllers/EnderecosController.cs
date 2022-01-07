@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LocaFacil;
 using LocaFacil.Models;
+using ViaCep;
 
 namespace LocaFacil.Controllers
 {
@@ -61,6 +62,13 @@ namespace LocaFacil.Controllers
         {
             if (ModelState.IsValid)
             {
+                // ViaCEP
+                var result = new ViaCepClient().Search(endereco.Cep);
+                endereco.Logradouro = result.Street;
+                endereco.Bairro = result.Neighborhood;
+                endereco.Localidade = result.City;
+                endereco.Uf.Sigla = result.StateInitials;
+
                 _context.Add(endereco);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

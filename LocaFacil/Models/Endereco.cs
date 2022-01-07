@@ -34,7 +34,6 @@ namespace LocaFacil.Models
         public string Localidade { get; set; }
 
 		[Display(Name = "UF")]
-		[DefaultValue("MG")]
 		public int UfId { get; set; }
 		public virtual Uf Uf { get; set; }
 

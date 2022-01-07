@@ -14,47 +14,47 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Cep" class="control-label"></label>
-                <input asp-for="Cep" class="form-control" />
+                <input asp-for="Cep" class="form-control" id="Endereco_Cep" name="Endereco.Cep" />
                 <span asp-validation-for="Cep" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Logradouro" class="control-label"></label>
-                <input asp-for="Logradouro" class="form-control" />
+                <input asp-for="Logradouro" class="form-control" id="Endereco_Logradouro" name="Endereco.Logradouro" />
                 <span asp-validation-for="Logradouro" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Numero" class="control-label"></label>
-                <input asp-for="Numero" class="form-control" />
+                <input asp-for="Numero" class="form-control" id="Endereco_Numero" name="Endereco.Numero" />
                 <span asp-validation-for="Numero" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Complemento" class="control-label"></label>
-                <input asp-for="Complemento" class="form-control" />
+                <input asp-for="Complemento" class="form-control" id="Endereco_Complemento" name="Endereco.Complemento" />
                 <span asp-validation-for="Complemento" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Bairro" class="control-label"></label>
-                <input asp-for="Bairro" class="form-control" />
+                <input asp-for="Bairro" class="form-control" id="Endereco_Bairro" name="Endereco.Bairro" />
                 <span asp-validation-for="Bairro" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Localidade" class="control-label"></label>
-                <input asp-for="Localidade" class="form-control" />
+                <input asp-for="Localidade" class="form-control" id="Endereco_Localidade" name="Endereco.Localidade" />
                 <span asp-validation-for="Localidade" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="UfId" class="control-label"></label>
-                <select asp-for="UfId" class ="form-control" asp-items="ViewBag.UfId"></select>
+                <select asp-for="UfId" class ="form-control" asp-items="ViewBag.UfId" id="Endereco_Uf" name="Endereco.Uf"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Criar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {
