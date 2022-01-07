@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ViaCep;
 
 namespace LocaFacil
 {
@@ -25,6 +26,7 @@ namespace LocaFacil
         {
             services.AddControllersWithViews();
             services.AddDbContext<LocaFacilContext>();
+            services.AddHttpClient<IViaCepClient, ViaCepClient>(client => { client.BaseAddress = new Uri("https://viacep.com.br/"); });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
